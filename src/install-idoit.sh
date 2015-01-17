@@ -1,7 +1,9 @@
 #!/bin/bash
 
 apt-get update
-apt-get install -y apache2 libapache2-mod-php5 php5 php5-cli php5-xmlrpc php5-ldap php5-gd php5-mysql mysql-server openssh-server unzip sudo	
+apt-get install -y apache2 libapache2-mod-php5 php5 php5-cli php5-xmlrpc php5-ldap php5-gd php5-mysql mysql-server openssh-server unzip sudo
+
+echo "root:root" | chpasswd
 
 mkdir -p /var/www/i-doit
 unzip -qq /idoit-src/idoit-open-1.4.7.zip -d /var/www/i-doit
