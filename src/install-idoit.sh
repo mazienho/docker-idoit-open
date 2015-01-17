@@ -11,22 +11,19 @@ chmod +x idoit-rights.sh
 ./idoit-rights.sh set
 echo "Set mysql password"
 /etc/init.d/mysql start
-echo "now wait 10s"
-sleep 10s
-/etc/init.d/apache2 start
-sleep 10s
 /usr/bin/mysqladmin -uroot password 'secret'
 echo "Install i-doit"
+echo "This could take a moment"
 #You have to change into the setup folder - or update the install script...
 cd setup
 ./install.sh -m idoit_data -s idoit_system -p secret -a admin -n "idoit-open" -q
 if [ $? == 0 ]; then
 	echo "successfully installed idoit"
-	echo "Now setting up recommended configs"
+	#echo "Now setting up recommended configs"
 	# /idoit-src/set_idoit_configs.sh
-
-	#mv /idoit-src/run.sh /run.sh
-	#rm -rf /idoit-src
+	echo "Removing install files"
+	mv /idoit-src/run.sh /run.sh
+	rm -rf /idoit-src
 	exit 0
 fi
 
