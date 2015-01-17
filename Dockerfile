@@ -1,5 +1,4 @@
 FROM debian:latest
-#FROM mazienho/idoit-open_test:latest
 MAINTAINER Mazienho <mazienho@gmx.de>
 
 #Add required files
