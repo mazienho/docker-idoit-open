@@ -5,15 +5,18 @@
 
 #Check if patch file(s) exists
 
-if [ -f /idoit-src/my-cnf.patch ]; then
-	patch /etc/mysql/my.cnf < /src/my-cnf.patch
+phppatch=/idoit-src/php-ini.patch
+mypatch=/idoit-src/my-cnf.patch
+
+if [ -f $mypatch ]; then
+	patch /etc/mysql/my.cnf < $mypatch
 	echo "MySQL config patched"
 else
 	echo "No mysql patch file found. Modify it manually."
 fi
 
-if [ -f /idoit-src/php-ini.patch ]; then
-	patch /etc/php5/apache2/php.ini < /src/php-ini.patch
+if [ -f $phppatch ]; then
+	patch /etc/php5/apache2/php.ini < $phppatch
 	echo "MySQL config patched"
 else
 	echo "No php patch file found. Modify it manually."
