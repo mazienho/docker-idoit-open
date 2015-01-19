@@ -1,5 +1,5 @@
---- php.ini.orig	2015-01-18 21:35:02.802962192 +0000
-+++ php.ini	2015-01-18 21:54:43.324816084 +0000
+--- php.ini.orig	2015-01-19 20:17:48.995429408 +0000
++++ php.ini	2015-01-19 20:19:28.719923915 +0000
 @@ -660,7 +660,7 @@
  ; Its value may be 0 to disable the limit. It is ignored if POST data reading
  ; is disabled through enable_post_data_reading.

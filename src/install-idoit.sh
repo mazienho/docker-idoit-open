@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt-get update
-apt-get install -y apache2 libapache2-mod-php5 php5 php5-cli php5-xmlrpc php5-ldap php5-gd php5-mysql php5-mcrypt mysql-server openssh-server unzip sudo patch
+apt-get install -y apache2 libapache2-mod-php5 php5 php5-cli php5-xmlrpc php5-ldap php5-gd php5-mysql php5-mcrypt php5-snmp mysql-server openssh-server unzip sudo patch
 
 echo "root:root" | chpasswd
 
