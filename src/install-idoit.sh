@@ -15,7 +15,6 @@ if [ ! -f $instfile ]; then
 	apt-get install -y wget
 	wget http://sourceforge.net/projects/i-doit/files/i-doit/1.4.7/idoit-open-1.4.7.zip -O $instfile
 fi
-#	unzip -qq /idoit-src/idoit-open-1.4.7.zip -d /var/www/i-doit
 	unzip -qq $instfile -d /var/www/i-doit
 
 cd /var/www/i-doit 
