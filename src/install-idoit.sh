@@ -5,14 +5,15 @@ updtfile=/idoit-src/idoit-open-1.4.8-update.zip
 aptwget=0
 
 apt-get update
-apt-get install -y apache2 libapache2-mod-php5 php5 php5-cli php5-xmlrpc php5-ldap php5-gd php5-mysql php5-mcrypt php5-snmp mysql-server openssh-server unzip sudo patch
+apt-get dist-upgrade
+apt-get install -y apache2 libapache2-mod-php5 php5 php5-curl php5-cli php5-xmlrpc php5-ldap php5-gd php5-mysql php5-mcrypt php5-snmp mysql-server openssh-server unzip sudo patch
 
 echo "root:root" | chpasswd
 
 mkdir -p /var/www/i-doit
 if [ ! -f $instfile ]; then
-	aptwget=1
 	apt-get install -y wget
+	aptwget=1
 	wget http://sourceforge.net/projects/i-doit/files/i-doit/1.4.7/idoit-open-1.4.7.zip -O $instfile
 fi
 	unzip -qq $instfile -d /var/www/i-doit
@@ -41,16 +42,18 @@ fi
 
 #Updates
 echo ""
-echo "Installing Updates"
+echo "Installing update files"
 if [ ! -f $updtfile ]; then
 	if [ $aptwget == 0 ]; then
 		apt-get install -y wget
 	fi
 	wget http://sourceforge.net/projects/i-doit/files/i-doit/1.4.8/idoit-open-1.4.8-update.zip -O $updtfile
-	unzip -qq -uo $updtfile -d /var/www/i-doit
-	echo "Update zip file extracted. Open <i-doit-IP/updates> in webbrowser and follow instructions."
-
 fi
+#Updatefile now available?
+if [ -f $updatefile ]; then
+	unzip -qq -uo $updtfile -d /var/www/i-doit
+fi
+echo "Update zip file extracted. Open <i-doit-IP/updates> in webbrowser and follow instructions."
 echo "Removing install files"
 mv /idoit-src/run.sh /run.sh
 rm -rf /idoit-src
