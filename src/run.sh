@@ -1,5 +1,8 @@
 #!/bin/bash
 
 service ssh start
-/usr/sbin/apache2ctl start
-/usr/bin/mysqld_safe
+service apache2 start
+service mysql start
+
+touch /tailme
+tailf /tailme
